@@ -26,9 +26,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_TAB,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                        KC_N,    KC_M,  KC_COMM, KC_DOT, KC_SLSH,  KC_RALT,
+      KC_LCTL,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                        KC_N,    KC_M,  KC_COMM, KC_DOT, KC_SLSH,  KC_RALT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LCTL,   MO(1),  KC_SPC,     KC_ENT,   MO(2), KC_RGUI
+                                    KC_LGUI, LT(1, KC_LANG2), KC_SPC,  SFT_T(KC_ENT), LT(2, KC_LANG1), KC_RGUI
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -41,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_UNDS, KC_LBRC, KC_RBRC, KC_EQL, KC_QUES, KC_BSLS,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          _______, _______, _______,   _______,   MO(3), _______
+                                          _______, _______, _______,   KC_BSPC,  MO(3),  _______
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          _______,   MO(3), _______,   _______, _______, _______
+                                          _______,   MO(3), _______,   KC_BSPC, _______, _______
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -166,58 +166,11 @@ void oled_task_user(void) {
     }
 }
 
-// static bool lower_pressed = false;
-// static bool raise_pressed = false;
-
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
     set_keylog(keycode, record);
   }
   return true;
-  // switch (keycode) {
-  //   case L_LOWER:
-  //     if (record->event.pressed) {
-  //       lower_pressed = true;
-  //       layer_on(L_LOWER);
-  //       update_tri_layer(L_LOWER, L_RAISE, L_ADJUST);
-  //     } else {
-  //       layer_off(L_LOWER);
-  //       update_tri_layer(L_LOWER, L_RAISE, L_ADJUST);
-
-  //       if (lower_pressed) {
-  //         register_code(KC_LANG2);
-  //         unregister_code(KC_LANG2);
-  //       }
-  //       lower_pressed = false;
-  //     }
-  //     return false;
-  //     break;
-  //   case L_RAISE:
-  //     if (record->event.pressed) {
-  //       raise_pressed = true;
-  //       layer_on(L_RAISE);
-  //       update_tri_layer(L_LOWER, L_RAISE, L_ADJUST);
-  //     } else {
-  //       layer_off(L_RAISE);
-  //       update_tri_layer(L_LOWER, L_RAISE, L_ADJUST);
-
-  //       if (raise_pressed) {
-  //         register_code(KC_LANG1);
-  //         unregister_code(KC_LANG1);
-  //       }
-  //       raise_pressed = false;
-  //     }
-  //     return false;
-  //     break;
-  //   default:
-  //     if (record->event.pressed) {
-  //       lower_pressed = false;
-  //       raise_pressed = false;
-  //       set_keylog(keycode, record);
-  //     }
-  //     break;
-  // }
-  // return true;
 }
 
 #endif // OLED_ENABLE
