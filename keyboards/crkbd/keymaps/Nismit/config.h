@@ -21,7 +21,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 //#define USE_MATRIX_I2C
-
 /* Select hand configuration */
 
 #define MASTER_LEFT
@@ -38,12 +37,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #ifdef RGBLIGHT_ENABLE
     #undef RGBLED_NUM
-    #define RGBLIGHT_ANIMATIONS
-    #define RGBLED_NUM 27
+    // #define RGBLIGHT_ANIMATIONS
+    #define RGBLIGHT_EFFECT_BREATHING
+    #define RGBLIGHT_EFFECT_KNIGHT
+    #define RGBLIGHT_EFFECT_STATIC_GRADIENT
+    #define RGBLED_NUM 54 // Set total RGB lights
+    #undef RGBLED_SPLIT // Crkbd is split keyboard
+    #define RGBLED_SPLIT \
+        { 27, 27 } // Each RGBs are 27
     #define RGBLIGHT_LIMIT_VAL 120
-    #define RGBLIGHT_HUE_STEP 10
-    #define RGBLIGHT_SAT_STEP 17
-    #define RGBLIGHT_VAL_STEP 17
+    #define RGBLIGHT_HUE_STEP 8
+    #define RGBLIGHT_SAT_STEP 8
+    #define RGBLIGHT_VAL_STEP 8
 #endif
 
 #define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"

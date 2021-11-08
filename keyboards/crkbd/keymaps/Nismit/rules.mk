@@ -1,3 +1,4 @@
 OLED_ENABLE = yes
 OLED_DRIVER = SSD1306
-RGBLIGHT_ENABLED = yes
+RGBLIGHT_ENABLE = yes # Enable RGB light
+MOUSEKEY_ENABLE = no # Reduce firmware size
