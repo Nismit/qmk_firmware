@@ -70,6 +70,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 };
 
+void suspend_power_down_user(void) {
+  oled_off();
+  rgblight_disable_noeeprom();
+}
+
+// void suspend_wakeup_init_user(void) {
+//  // code will run on keyboard wakeup
+// }
+
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
   if (!is_keyboard_master()) {
