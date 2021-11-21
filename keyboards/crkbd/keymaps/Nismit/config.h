@@ -39,8 +39,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #undef RGBLED_NUM
     // #define RGBLIGHT_ANIMATIONS
     #define RGBLIGHT_EFFECT_BREATHING
-    #define RGBLIGHT_EFFECT_KNIGHT
-    #define RGBLIGHT_EFFECT_STATIC_GRADIENT
+    // #define RGBLIGHT_EFFECT_KNIGHT
+    // #define RGBLIGHT_EFFECT_STATIC_GRADIENT
     #define RGBLED_NUM 54 // Set total RGB lights
     #undef RGBLED_SPLIT // Crkbd is split keyboard
     #define RGBLED_SPLIT \
