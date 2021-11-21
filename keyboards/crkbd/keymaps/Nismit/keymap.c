@@ -75,9 +75,9 @@ void suspend_power_down_user(void) {
   rgblight_disable_noeeprom();
 }
 
-// void suspend_wakeup_init_user(void) {
-//  // code will run on keyboard wakeup
-// }
+void suspend_wakeup_init_user(void) {
+  rgblight_enable_noeeprom();
+}
 
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
