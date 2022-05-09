@@ -71,20 +71,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 void suspend_power_down_user(void) {
-  oled_off();
-  rgblight_disable_noeeprom();
+    oled_off();
+    rgblight_disable_noeeprom();
 }
 
 void suspend_wakeup_init_user(void) {
-  rgblight_enable_noeeprom();
+    rgblight_enable_noeeprom();
 }
 
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-  if (!is_keyboard_master()) {
-    return OLED_ROTATION_180;  // flips the display 180 degrees if offhand
-  }
-  return rotation;
+    if (!is_keyboard_master()) {
+        return OLED_ROTATION_180;  // flips the display 180 degrees if offhand
+    }
+    return rotation;
 }
 
 #define L_BASE 0
@@ -125,17 +125,17 @@ const char code_to_name[60] = {
     '#', ';', '\'', '`', ',', '.', '/', ' ', ' ', ' '};
 
 void set_keylog(uint16_t keycode, keyrecord_t *record) {
-  char name = ' ';
+    char name = ' ';
     if ((keycode >= QK_MOD_TAP && keycode <= QK_MOD_TAP_MAX) ||
         (keycode >= QK_LAYER_TAP && keycode <= QK_LAYER_TAP_MAX)) { keycode = keycode & 0xFF; }
-  if (keycode < 60) {
-    name = code_to_name[keycode];
-  }
+    if (keycode < 60) {
+        name = code_to_name[keycode];
+    }
 
-  // update keylog
-  snprintf(keylog_str, sizeof(keylog_str), "%dx%d, k%2d : %c",
-           record->event.key.row, record->event.key.col,
-           keycode, name);
+    // update keylog
+    snprintf(keylog_str, sizeof(keylog_str), "%dx%d, k%2d : %c",
+        record->event.key.row, record->event.key.col,
+        keycode, name);
 }
 
 void oled_render_keylog(void) {
@@ -166,20 +166,21 @@ void oled_render_logo(void) {
     oled_write_P(crkbd_logo, false);
 }
 
-void oled_task_user(void) {
+bool oled_task_user(void) {
     if (is_keyboard_master()) {
         oled_render_layer_state();
         oled_render_keylog();
     } else {
         oled_render_logo();
     }
+    return false;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (record->event.pressed) {
-    set_keylog(keycode, record);
-  }
-  return true;
+    if (record->event.pressed) {
+        set_keylog(keycode, record);
+    }
+    return true;
 }
 
 #endif // OLED_ENABLE
