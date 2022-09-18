@@ -52,5 +52,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #define RGBLIGHT_SLEEP // Turn off RGB when the computer is sleep
 #endif
 
+#ifdef RGB_MATRIX_ENABLE
+    #define RGB_DISABLE_WHEN_USB_SUSPENDED // turn off effects when suspended
+#endif
+
 #define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
 
