@@ -74,14 +74,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LGUI,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RALT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                    KC_LCTL, LT(6, KC_INT5), KC_SPC,   SFT_T(KC_ENT), LT(7, KC_INT4), KC_RGUI
+                                  KC_LCTL, LT(6, KC_LNG2), KC_SPC,   SFT_T(KC_ENT), LT(7, KC_LNG1), KC_RGUI
                                       //`--------------------------'  `--------------------------'
 
   ),
 
   [L_W_LOWER] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      KC_ESC,  KC_EXLM,  KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
+       KC_ESC,  KC_EXLM,  KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, KC_TILD,  KC_GRV,   KC_LT,   KC_GT, XXXXXXX,                      KC_MINS, KC_LCBR, KC_RCBR, KC_PLUS, KC_COLN, KC_DQUO,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -178,7 +178,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
       rgblight_sethsv_noeeprom(0, 110, 255);
       break;
     case 6: // W_LOWER
-      rgblight_sethsv_noeeprom(215, 185, 255);
+      rgblight_sethsv_noeeprom(219, 155, 255);
       break;
     case 7: // W_RAISE
       rgblight_sethsv_noeeprom(25, 125, 255);
