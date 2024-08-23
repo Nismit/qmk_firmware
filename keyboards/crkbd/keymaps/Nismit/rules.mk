@@ -1,0 +1,7 @@
+OLED_ENABLE			= yes
+OLED_DRIVER			= ssd1306
+RGBLIGHT_ENABLE		= no
+RGB_MATRIX_ENABLE	= yes
+MOUSEKEY_ENABLE		= no # Reduce firmware size
+BACKLIGHT_ENABLE	= no
+SLEEP_LED_ENABLE	= no
